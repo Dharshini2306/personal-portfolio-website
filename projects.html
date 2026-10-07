@@ -1,0 +1,1176 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Projects | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           PROJECT PAGE
+        ========================= */
+
+        .project-page {
+            min-height: 100vh;
+            padding: 130px 8% 80px;
+            background: linear-gradient(135deg, #f7f5ff, #ffffff);
+        }
+
+        /* =========================
+           PAGE HEADING
+        ========================= */
+
+        .project-heading {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeDown 1s ease;
+        }
+
+        .project-heading h1 {
+            font-size: 45px;
+            color: #222;
+        }
+
+        .project-heading h1 span {
+            color: #6c4df6;
+        }
+
+        .project-heading p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* =========================
+           PROJECT CONTAINER
+        ========================= */
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        /* =========================
+           PROJECT CARD
+        ========================= */
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+            animation: cardAppear 1s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(108, 77, 246, 0.18);
+        }
+
+        /* =========================
+           PROJECT IMAGE
+        ========================= */
+
+        .project-image {
+            height: 220px;
+            background: linear-gradient(135deg, #6c4df6, #9b86ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            transition: 0.4s;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.03);
+        }
+
+        /* =========================
+           PROJECT CONTENT
+        ========================= */
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-content h2 {
+            color: #6c4df6;
+            margin-bottom: 12px;
+        }
+
+        .project-content > p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           PROJECT DETAILS
+        ========================= */
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .detail {
+            background: #f5f3ff;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .detail strong {
+            display: block;
+            color: #6c4df6;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .detail span {
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* =========================
+           TECHNOLOGIES
+        ========================= */
+
+        .technologies {
+            margin-bottom: 25px;
+        }
+
+        .technologies h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech {
+            padding: 7px 13px;
+            background: #eeeaff;
+            color: #6c4df6;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            margin-bottom: 25px;
+        }
+
+        .features h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .features ul {
+            list-style: none;
+        }
+
+        .features li {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #6c4df6;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .project-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .live-btn {
+            background: #6c4df6;
+            color: white;
+        }
+
+        .live-btn:hover {
+            background: #5337d4;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(108, 77, 246, 0.3);
+        }
+
+        .code-btn {
+            border: 2px solid #6c4df6;
+            color: #6c4df6;
+        }
+
+        .code-btn:hover {
+            background: #6c4df6;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           PROJECT STATUS
+        ========================= */
+
+        .status {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #e7f8ed;
+            color: #218838;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           MORE PROJECTS
+        ========================= */
+
+        .more-projects {
+            text-align: center;
+            margin-top: 70px;
+            padding: 45px;
+            background: #f0edff;
+            border-radius: 20px;
+        }
+
+        .more-projects h2 {
+            color: #6c4df6;
+            margin-bottom: 12px;
+        }
+
+        .more-projects p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .project-page {
+                padding: 120px 5% 60px;
+            }
+
+            .project-heading h1 {
+                font-size: 35px;
+            }
+
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+
+            .project-buttons {
+                flex-direction: column;
+            }
+
+            .project-btn {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MyPortfolio
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="skills.html">Skills</a>
+                </li>
+
+                <li>
+                    <a href="project.html">Projects</a>
+                </li>
+
+                <li>
+                    <a href="education.html">Education</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         PROJECT PAGE
+    ========================= -->
+
+    <main class="project-page">
+
+
+        <!-- Heading -->
+
+        <div class="project-heading">
+
+            <h1>
+                My <span>Projects</span>
+            </h1>
+
+            <p>
+                Explore the projects I have created while
+                learning web and full-stack development.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================= -->
+
+        <div class="project-container">
+
+
+            <!-- ==================================
+                 PROJECT 1
+            =================================== -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🎓
+                </div>
+
+                <div class="project-content">
+
+                    <span class="status">
+                        Completed
+                    </span>
+
+                    <h2>
+                        Student Management System
+                    </h2>
+
+                    <p>
+                        A web-based Student Management System
+                        designed to manage student information,
+                        marks, attendance, examination results
+                        and college fees.
+                    </p>
+
+
+                    <!-- Details -->
+
+                    <div class="project-details">
+
+                        <div class="detail">
+
+                            <strong>Project Type</strong>
+
+                            <span>
+                                Full Stack
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Role</strong>
+
+                            <span>
+                                Developer
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Frontend</strong>
+
+                            <span>
+                                HTML, CSS, JavaScript
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Database</strong>
+
+                            <span>
+                                MongoDB
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Technologies -->
+
+                    <div class="technologies">
+
+                        <h3>
+                            Technologies Used
+                        </h3>
+
+                        <div class="tech-list">
+
+                            <span class="tech">
+                                HTML
+                            </span>
+
+                            <span class="tech">
+                                CSS
+                            </span>
+
+                            <span class="tech">
+                                JavaScript
+                            </span>
+
+                            <span class="tech">
+                                Node.js
+                            </span>
+
+                            <span class="tech">
+                                Express.js
+                            </span>
+
+                            <span class="tech">
+                                MongoDB
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Features -->
+
+                    <div class="features">
+
+                        <h3>
+                            Main Features
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Student Login
+                            </li>
+
+                            <li>
+                                Staff Login
+                            </li>
+
+                            <li>
+                                Student Dashboard
+                            </li>
+
+                            <li>
+                                Marks Management
+                            </li>
+
+                            <li>
+                                Attendance Management
+                            </li>
+
+                            <li>
+                                Fee Management
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Buttons -->
+
+                    <div class="project-buttons">
+
+                        <!-- Change this path -->
+
+                        <a
+                            href="student-management/index.html"
+                            class="project-btn live-btn"
+                            target="_blank">
+
+                            🚀 View Project
+
+                        </a>
+
+                        <!-- Change this GitHub link -->
+
+                        <a
+                            href="https://github.com/"
+                            class="project-btn code-btn"
+                            target="_blank">
+
+                            💻 Source Code
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================
+                 PROJECT 2
+            =================================== -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🍔
+                </div>
+
+                <div class="project-content">
+
+                    <span class="status">
+                        Completed
+                    </span>
+
+                    <h2>
+                        Online Food Ordering System
+                    </h2>
+
+                    <p>
+                        An online food ordering website where
+                        users can browse food items, view prices,
+                        select items and place food orders.
+                    </p>
+
+
+                    <div class="project-details">
+
+                        <div class="detail">
+
+                            <strong>Project Type</strong>
+
+                            <span>
+                                Full Stack
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Role</strong>
+
+                            <span>
+                                Developer
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Frontend</strong>
+
+                            <span>
+                                HTML, CSS, JavaScript
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Database</strong>
+
+                            <span>
+                                MongoDB
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="technologies">
+
+                        <h3>
+                            Technologies Used
+                        </h3>
+
+                        <div class="tech-list">
+
+                            <span class="tech">
+                                HTML
+                            </span>
+
+                            <span class="tech">
+                                CSS
+                            </span>
+
+                            <span class="tech">
+                                JavaScript
+                            </span>
+
+                            <span class="tech">
+                                Node.js
+                            </span>
+
+                            <span class="tech">
+                                Express.js
+                            </span>
+
+                            <span class="tech">
+                                MongoDB
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="features">
+
+                        <h3>
+                            Main Features
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Food Menu
+                            </li>
+
+                            <li>
+                                Food Categories
+                            </li>
+
+                            <li>
+                                Search Food
+                            </li>
+
+                            <li>
+                                Shopping Cart
+                            </li>
+
+                            <li>
+                                Order Placement
+                            </li>
+
+                            <li>
+                                Order Management
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="project-buttons">
+
+                        <a
+                            href="food-ordering/index.html"
+                            class="project-btn live-btn"
+                            target="_blank">
+
+                            🚀 View Project
+
+                        </a>
+
+                        <a
+                            href="https://github.com/"
+                            class="project-btn code-btn"
+                            target="_blank">
+
+                            💻 Source Code
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================
+                 PROJECT 3
+            =================================== -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    💼
+                </div>
+
+                <div class="project-content">
+
+                    <span class="status">
+                        Completed
+                    </span>
+
+                    <h2>
+                        Personal Portfolio Website
+                    </h2>
+
+                    <p>
+                        A modern responsive portfolio website
+                        created to showcase my profile, skills,
+                        education, projects and contact information.
+                    </p>
+
+
+                    <div class="project-details">
+
+                        <div class="detail">
+
+                            <strong>Project Type</strong>
+
+                            <span>
+                                Frontend
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Role</strong>
+
+                            <span>
+                                Designer & Developer
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Design</strong>
+
+                            <span>
+                                Responsive
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Backend</strong>
+
+                            <span>
+                                Not Required
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="technologies">
+
+                        <h3>
+                            Technologies Used
+                        </h3>
+
+                        <div class="tech-list">
+
+                            <span class="tech">
+                                HTML5
+                            </span>
+
+                            <span class="tech">
+                                CSS3
+                            </span>
+
+                            <span class="tech">
+                                Animations
+                            </span>
+
+                            <span class="tech">
+                                Responsive Design
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="features">
+
+                        <h3>
+                            Main Features
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Home Page
+                            </li>
+
+                            <li>
+                                About Page
+                            </li>
+
+                            <li>
+                                Skills Page
+                            </li>
+
+                            <li>
+                                Projects Page
+                            </li>
+
+                            <li>
+                                Education Page
+                            </li>
+
+                            <li>
+                                Contact Page
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="project-buttons">
+
+                        <a
+                            href="index.html"
+                            class="project-btn live-btn">
+
+                            🚀 View Project
+
+                        </a>
+
+                        <a
+                            href="https://github.com/"
+                            class="project-btn code-btn"
+                            target="_blank">
+
+                            💻 Source Code
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================
+                 PROJECT 4
+            =================================== -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🛒
+                </div>
+
+                <div class="project-content">
+
+                    <span class="status">
+                        In Progress
+                    </span>
+
+                    <h2>
+                        E-Commerce Website
+                    </h2>
+
+                    <p>
+                        An e-commerce website designed to allow
+                        users to browse products, add products
+                        to a cart and place orders online.
+                    </p>
+
+
+                    <div class="project-details">
+
+                        <div class="detail">
+
+                            <strong>Project Type</strong>
+
+                            <span>
+                                Full Stack
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Frontend</strong>
+
+                            <span>
+                                HTML, CSS, JavaScript
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Backend</strong>
+
+                            <span>
+                                Node.js
+                            </span>
+
+                        </div>
+
+                        <div class="detail">
+
+                            <strong>Database</strong>
+
+                            <span>
+                                MongoDB
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="technologies">
+
+                        <h3>
+                            Technologies Used
+                        </h3>
+
+                        <div class="tech-list">
+
+                            <span class="tech">
+                                HTML
+                            </span>
+
+                            <span class="tech">
+                                CSS
+                            </span>
+
+                            <span class="tech">
+                                JavaScript
+                            </span>
+
+                            <span class="tech">
+                                Node.js
+                            </span>
+
+                            <span class="tech">
+                                Express.js
+                            </span>
+
+                            <span class="tech">
+                                MongoDB
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="features">
+
+                        <h3>
+                            Planned Features
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Product Listing
+                            </li>
+
+                            <li>
+                                Product Search
+                            </li>
+
+                            <li>
+                                Shopping Cart
+                            </li>
+
+                            <li>
+                                User Login
+                            </li>
+
+                            <li>
+                                Order Management
+                            </li>
+
+                            <li>
+                                Admin Dashboard
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="project-buttons">
+
+                        <a
+                            href="ecommerce/index.html"
+                            class="project-btn live-btn"
+                            target="_blank">
+
+                            🚀 View Project
+
+                        </a>
+
+                        <a
+                            href="https://github.com/"
+                            class="project-btn code-btn"
+                            target="_blank">
+
+                            💻 Source Code
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             MORE PROJECTS
+        ========================= -->
+
+        <section class="more-projects">
+
+            <h2>
+                More Projects Coming Soon 🚀
+            </h2>
+
+            <p>
+                I am continuously learning and building
+                new projects to improve my development skills.
+            </p>
+
+            <a
+                href="contact.html"
+                class="project-btn live-btn">
+
+                Contact Me
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 DharsHini | My Portfolio
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```

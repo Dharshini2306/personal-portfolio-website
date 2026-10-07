@@ -1,0 +1,997 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education | My Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           EDUCATION PAGE
+        ========================= */
+
+        .education-page {
+            min-height: 100vh;
+            padding: 130px 10% 80px;
+            background: linear-gradient(135deg, #f7f5ff, #ffffff);
+        }
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .education-heading {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeDown 1s ease;
+        }
+
+        .education-heading h1 {
+            font-size: 45px;
+            color: #222;
+        }
+
+        .education-heading h1 span {
+            color: #6c4df6;
+        }
+
+        .education-heading p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* =========================
+           EDUCATION TIMELINE
+        ========================= */
+
+        .timeline {
+            max-width: 900px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #6c4df6;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+            animation: cardAppear 1s ease;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        /* Timeline Dot */
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 35px;
+            width: 18px;
+            height: 18px;
+            background: #6c4df6;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px #6c4df6;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -11px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -11px;
+        }
+
+        /* =========================
+           EDUCATION CARD
+        ========================= */
+
+        .education-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(108, 77, 246, 0.18);
+        }
+
+        .education-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .education-card h2 {
+            color: #6c4df6;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .education-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 7px;
+        }
+
+        .year {
+            display: inline-block;
+            padding: 7px 15px;
+            background: #eeeaff;
+            color: #6c4df6;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           ACADEMIC DETAILS
+        ========================= */
+
+        .academic-section {
+            margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #222;
+        }
+
+        .section-title p {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .academic-card {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            transition: 0.4s;
+        }
+
+        .academic-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .academic-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .academic-card h3 {
+            color: #6c4df6;
+            margin-bottom: 12px;
+        }
+
+        .academic-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CERTIFICATIONS
+        ========================= */
+
+        .certification-section {
+            margin-top: 80px;
+        }
+
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .certificate-card {
+            background: white;
+            padding: 30px;
+            border-left: 5px solid #6c4df6;
+            border-radius: 12px;
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateX(8px);
+        }
+
+        .certificate-card h3 {
+            color: #6c4df6;
+            margin-bottom: 10px;
+        }
+
+        .certificate-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           LEARNING GOALS
+        ========================= */
+
+        .learning-section {
+            margin-top: 80px;
+        }
+
+        .learning-box {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .learning-box h2 {
+            color: #6c4df6;
+            margin-bottom: 20px;
+        }
+
+        .learning-box p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================= */
+
+        .achievement-section {
+            margin-top: 80px;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .achievement-card {
+            background: #f0edff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 18px;
+            transition: 0.4s;
+        }
+
+        .achievement-card:hover {
+            transform: scale(1.04);
+        }
+
+        .achievement-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .achievement-card h3 {
+            color: #6c4df6;
+            margin-bottom: 10px;
+        }
+
+        .achievement-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px;
+                text-align: left !important;
+            }
+
+            .timeline-item::before {
+                left: 10px !important;
+                right: auto !important;
+            }
+
+            .academic-grid,
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .certification-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .education-page {
+                padding: 120px 5% 60px;
+            }
+
+            .education-heading h1 {
+                font-size: 35px;
+            }
+
+            .academic-grid,
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-card {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MyPortfolio
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="skills.html">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projects.html">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="education.html">
+                        Education
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         EDUCATION PAGE
+    ========================= -->
+
+    <main class="education-page">
+
+
+        <!-- Page Heading -->
+
+        <div class="education-heading">
+
+            <h1>
+                My <span>Education</span>
+            </h1>
+
+            <p>
+                My academic journey, certifications,
+                achievements and learning goals.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             EDUCATION TIMELINE
+        ========================= -->
+
+        <section class="timeline">
+
+
+            <!-- Degree -->
+
+            <div class="timeline-item">
+
+                <div class="education-card">
+
+                    <div class="education-icon">
+                        🎓
+                    </div>
+
+                    <span class="year">
+                        2024 - 2028
+                    </span>
+
+                    <h2>
+                        Bachelor of Technology
+                    </h2>
+
+                    <h3>
+                        Information Technology
+                    </h3>
+
+                    <p>
+                        <strong>College:</strong>
+                        United Institute of Technology
+                    </p>
+
+                    <p>
+                        Currently pursuing a degree in
+                        Information Technology with an interest
+                        in web development and software development.
+                    </p>
+
+                    <p>
+                        <strong>Focus Areas:</strong>
+                        Web Development, Database Management,
+                        Programming and Software Engineering.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Higher Secondary -->
+
+            <div class="timeline-item">
+
+                <div class="education-card">
+
+                    <div class="education-icon">
+                        📚
+                    </div>
+
+                    <span class="year">
+                        2022 - 2024
+                    </span>
+
+                    <h2>
+                        Higher Secondary Education
+                    </h2>
+
+                    <h3>
+                        Computer Science
+                    </h3>
+
+                    <p>
+                        <strong>School:</strong>
+                        Municipal Girls Higher Secondary School
+                    </p>
+
+                    <p>
+                        Completed higher secondary education
+                        with an interest in computer science
+                        and technology.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- School -->
+
+            <div class="timeline-item">
+
+                <div class="education-card">
+
+                    <div class="education-icon">
+                        🏫
+                    </div>
+
+                    <span class="year">
+                        2020 - 2022
+                    </span>
+
+                    <h2>
+                        Secondary Education
+                    </h2>
+
+                    <h3>
+                        School Education
+                    </h3>
+
+                    <p>
+                        <strong>School:</strong>
+                        Municipal Girls Higher Secondary School
+                    </p>
+
+                    <p>
+                        Completed secondary education and
+                        developed an early interest in technology,
+                        computers and problem solving.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             ACADEMIC AREAS
+        ========================= -->
+
+        <section class="academic-section">
+
+            <div class="section-title">
+
+                <h2>
+                    📖 Academic Areas
+                </h2>
+
+                <p>
+                    Subjects and technical areas that
+                    I am studying.
+                </p>
+
+            </div>
+
+
+            <div class="academic-grid">
+
+
+                <div class="academic-card">
+
+                    <div class="icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <p>
+                        Java, Python, C, C++ and
+                        programming fundamentals.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        HTML, CSS, JavaScript,
+                        frontend and backend development.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="icon">
+                        🗄️
+                    </div>
+
+                    <h3>
+                        Database
+                    </h3>
+
+                    <p>
+                        SQL, MongoDB, database design
+                        and database management.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="icon">
+                        🔐
+                    </div>
+
+                    <h3>
+                        Computer Networks
+                    </h3>
+
+                    <p>
+                        Networking fundamentals,
+                        protocols and network security.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Operating Systems
+                    </h3>
+
+                    <p>
+                        Processes, memory management,
+                        scheduling and file systems.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Problem Solving
+                    </h3>
+
+                    <p>
+                        Algorithms, logical thinking
+                        and programming problem solving.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CERTIFICATIONS
+        ========================= -->
+
+        <section class="certification-section">
+
+            <div class="section-title">
+
+                <h2>
+                    🏆 Certifications & Training
+                </h2>
+
+                <p>
+                    Courses, workshops and technical
+                    training I have completed.
+                </p>
+
+            </div>
+
+
+            <div class="certification-grid">
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Full Stack Web Development
+                    </h3>
+
+                    <p>
+                        Learned frontend, backend,
+                        database and full-stack development
+                        concepts through practical projects.
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Web Development Workshop
+                    </h3>
+
+                    <p>
+                        Participated in a web development
+                        workshop covering modern website
+                        development concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                    <p>
+                        Studied Java programming,
+                        object-oriented programming and
+                        application development.
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Git & GitHub
+                    </h3>
+
+                    <p>
+                        Learned version control,
+                        repositories, commits, branches
+                        and project sharing.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACHIEVEMENTS
+        ========================= -->
+
+        <section class="achievement-section">
+
+            <div class="section-title">
+
+                <h2>
+                    🌟 Achievements
+                </h2>
+
+                <p>
+                    Academic and technical achievements.
+                </p>
+
+            </div>
+
+
+            <div class="achievement-grid">
+
+
+                <div class="achievement-card">
+
+                    <div class="icon">
+                        🚀
+                    </div>
+
+                    <h3>
+                        Web Projects
+                    </h3>
+
+                    <p>
+                        Created multiple web development
+                        projects using HTML, CSS and JavaScript.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card">
+
+                    <div class="icon">
+                        💡
+                    </div>
+
+                    <h3>
+                        Technical Events
+                    </h3>
+
+                    <p>
+                        Participated in technical workshops,
+                        activities and development events.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card">
+
+                    <div class="icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Continuous Learning
+                    </h3>
+
+                    <p>
+                        Continuously learning new programming
+                        languages and development technologies.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FUTURE LEARNING
+        ========================= -->
+
+        <section class="learning-section">
+
+            <div class="section-title">
+
+                <h2>
+                    🚀 Future Learning Goals
+                </h2>
+
+            </div>
+
+
+            <div class="learning-box">
+
+                <h2>
+                    My Next Step
+                </h2>
+
+                <p>
+                    My goal is to become a job-ready
+                    full-stack developer by improving my
+                    frontend, backend and database skills.
+                </p>
+
+                <p>
+                    I plan to learn React.js, Node.js,
+                    Express.js, MongoDB, REST APIs,
+                    Git, GitHub and deployment.
+                </p>
+
+                <p>
+                    I also want to build more real-world
+                    projects and gain practical industry
+                    experience.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Dharshini | My Portfolio
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```

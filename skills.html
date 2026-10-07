@@ -1,0 +1,1122 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Skills | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           SKILLS PAGE
+        ========================= */
+
+        .skills-page {
+            padding: 130px 10% 80px;
+            background: linear-gradient(135deg, #f7f5ff, #ffffff);
+            min-height: 100vh;
+        }
+
+        .skills-heading {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeDown 1s ease;
+        }
+
+        .skills-heading h1 {
+            font-size: 45px;
+            color: #222;
+        }
+
+        .skills-heading h1 span {
+            color: #6c4df6;
+        }
+
+        .skills-heading p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* =========================
+           SKILL CATEGORY
+        ========================= */
+
+        .skill-category {
+            margin-bottom: 55px;
+        }
+
+        .category-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category-title h2 {
+            color: #222;
+            font-size: 30px;
+        }
+
+        .category-title p {
+            color: #777;
+            margin-top: 8px;
+        }
+
+        /* =========================
+           SKILL CARDS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            animation: cardAppear 1s ease;
+        }
+
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: #6c4df6;
+            top: 0;
+            left: -100%;
+            transition: 0.4s;
+        }
+
+        .skill-card:hover::before {
+            left: 0;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(108, 77, 246, 0.18);
+        }
+
+        .skill-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 15px;
+            background: #f0edff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            color: #6c4df6;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .skill-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           SKILL BAR
+        ========================= */
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .skill-info span:first-child {
+            color: #444;
+        }
+
+        .skill-info span:last-child {
+            color: #6c4df6;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 9px;
+            background: #e8e6ee;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #6c4df6;
+            border-radius: 20px;
+            animation: progressAnimation 1.8s ease;
+        }
+
+        .html {
+            width: 95%;
+        }
+
+        .css {
+            width: 90%;
+        }
+
+        .javascript {
+            width: 80%;
+        }
+
+        .react {
+            width: 75%;
+        }
+
+        .node {
+            width: 75%;
+        }
+
+        .express {
+            width: 70%;
+        }
+
+        .mongodb {
+            width: 70%;
+        }
+
+        .sql {
+            width: 75%;
+        }
+
+        .git {
+            width: 80%;
+        }
+
+        /* =========================
+           SOFT SKILLS
+        ========================= */
+
+        .soft-skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .soft-card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.06);
+            transition: 0.4s;
+        }
+
+        .soft-card:hover {
+            transform: scale(1.05);
+            background: #f0edff;
+        }
+
+        .soft-card .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .soft-card h3 {
+            color: #6c4df6;
+            margin-bottom: 8px;
+        }
+
+        .soft-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           TOOLS
+        ========================= */
+
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .tool {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            color: #555;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tool:hover {
+            background: #6c4df6;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* =========================
+           LEARNING SECTION
+        ========================= */
+
+        .learning-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .learning-box h2 {
+            color: #6c4df6;
+            margin-bottom: 15px;
+        }
+
+        .learning-box p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes progressAnimation {
+
+            from {
+                width: 0;
+            }
+
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .soft-skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .skills-page {
+                padding: 120px 5% 60px;
+            }
+
+            .skills-heading h1 {
+                font-size: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .soft-skills {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MyPortfolio
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="skills.html">Skills</a>
+                </li>
+
+                <li>
+                    <a href="projects.html">Projects</a>
+                </li>
+
+                <li>
+                    <a href="education.html">Education</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         SKILLS PAGE
+    ========================= -->
+
+    <main class="skills-page">
+
+
+        <!-- Heading -->
+
+        <div class="skills-heading">
+
+            <h1>
+                My <span>Skills</span>
+            </h1>
+
+            <p>
+                Technologies and abilities that I use
+                to create modern web applications.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             FRONTEND SKILLS
+        ========================= -->
+
+        <section class="skill-category">
+
+            <div class="category-title">
+
+                <h2>🎨 Frontend Development</h2>
+
+                <p>
+                    Technologies used to create attractive
+                    and responsive user interfaces.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <!-- HTML -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🌐
+                    </div>
+
+                    <h3>HTML5</h3>
+
+                    <p>
+                        I use HTML5 to create the structure
+                        and semantic content of modern websites.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>95%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress html"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CSS -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🎨
+                    </div>
+
+                    <h3>CSS3</h3>
+
+                    <p>
+                        I use CSS to design responsive layouts,
+                        animations, transitions and modern UI.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>90%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress css"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JavaScript -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        ⚡
+                    </div>
+
+                    <h3>JavaScript</h3>
+
+                    <p>
+                        Used for adding interactive features,
+                        validation and dynamic website functionality.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>80%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress javascript"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- React -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        ⚛️
+                    </div>
+
+                    <h3>React.js</h3>
+
+                    <p>
+                        Used to create reusable components
+                        and interactive single-page applications.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>75%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress react"></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BACKEND
+        ========================= -->
+
+        <section class="skill-category">
+
+            <div class="category-title">
+
+                <h2>⚙️ Backend Development</h2>
+
+                <p>
+                    Technologies used for server-side
+                    development and APIs.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <!-- Node -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🟢
+                    </div>
+
+                    <h3>Node.js</h3>
+
+                    <p>
+                        Used to build server-side applications
+                        and backend services using JavaScript.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>75%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress node"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Express -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🚀
+                    </div>
+
+                    <h3>Express.js</h3>
+
+                    <p>
+                        Used to create REST APIs and
+                        backend routes efficiently.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>70%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress express"></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DATABASE
+        ========================= -->
+
+        <section class="skill-category">
+
+            <div class="category-title">
+
+                <h2>🗄️ Database</h2>
+
+                <p>
+                    Technologies used to store and manage
+                    application data.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <!-- MongoDB -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🍃
+                    </div>
+
+                    <h3>MongoDB</h3>
+
+                    <p>
+                        NoSQL database used for storing
+                        flexible application data.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>70%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress mongodb"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SQL -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🗃️
+                    </div>
+
+                    <h3>SQL</h3>
+
+                    <p>
+                        Used for creating, querying and
+                        managing relational databases.
+                    </p>
+
+                    <div class="skill-info">
+
+                        <span>Skill Level</span>
+
+                        <span>75%</span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div class="skill-progress sql"></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROGRAMMING
+        ========================= -->
+
+        <section class="skill-category">
+
+            <div class="category-title">
+
+                <h2>💻 Programming</h2>
+
+                <p>
+                    Programming languages and fundamentals
+                    that I am learning and practicing.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        ☕
+                    </div>
+
+                    <h3>Java</h3>
+
+                    <p>
+                        Object-oriented programming,
+                        problem solving and application development.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🐍
+                    </div>
+
+                    <h3>Python</h3>
+
+                    <p>
+                        Used for programming fundamentals,
+                        automation and application development.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>C / C++</h3>
+
+                    <p>
+                        Used for understanding programming
+                        fundamentals and data structures.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TOOLS
+        ========================= -->
+
+        <section class="skill-category">
+
+            <div class="category-title">
+
+                <h2>🛠️ Tools & Technologies</h2>
+
+                <p>
+                    Development tools that I use while
+                    building and managing projects.
+                </p>
+
+            </div>
+
+
+            <div class="tools-container">
+
+                <div class="tool">
+                    VS Code
+                </div>
+
+                <div class="tool">
+                    Git
+                </div>
+
+                <div class="tool">
+                    GitHub
+                </div>
+
+                <div class="tool">
+                    MongoDB Compass
+                </div>
+
+                <div class="tool">
+                    Node Package Manager
+                </div>
+
+                <div class="tool">
+                    Chrome DevTools
+                </div>
+
+                <div class="tool">
+                    Figma
+                </div>
+
+                <div class="tool">
+                    Canva
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOFT SKILLS
+        ========================= -->
+
+        <section class="skill-category">
+
+            <div class="category-title">
+
+                <h2>🌟 Soft Skills</h2>
+
+                <p>
+                    Personal qualities that help me work
+                    effectively with others.
+                </p>
+
+            </div>
+
+
+            <div class="soft-skills">
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        🧠
+                    </div>
+
+                    <h3>Problem Solving</h3>
+
+                    <p>
+                        Ability to analyze problems and
+                        find practical solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        🤝
+                    </div>
+
+                    <h3>Teamwork</h3>
+
+                    <p>
+                        Comfortable working and
+                        collaborating with a team.
+                    </p>
+
+                </div>
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        ⏰
+                    </div>
+
+                    <h3>Time Management</h3>
+
+                    <p>
+                        Ability to organize tasks and
+                        complete work within deadlines.
+                    </p>
+
+                </div>
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        📚
+                    </div>
+
+                    <h3>Quick Learning</h3>
+
+                    <p>
+                        Interested in learning new
+                        technologies and concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        💬
+                    </div>
+
+                    <h3>Communication</h3>
+
+                    <p>
+                        Able to communicate ideas
+                        clearly and effectively.
+                    </p>
+
+                </div>
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        🎯
+                    </div>
+
+                    <h3>Leadership</h3>
+
+                    <p>
+                        Willing to take responsibility
+                        and guide a team when required.
+                    </p>
+
+                </div>
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        💡
+                    </div>
+
+                    <h3>Creativity</h3>
+
+                    <p>
+                        Enjoy creating new ideas and
+                        attractive website designs.
+                    </p>
+
+                </div>
+
+
+                <div class="soft-card">
+
+                    <div class="icon">
+                        🔥
+                    </div>
+
+                    <h3>Positive Attitude</h3>
+
+                    <p>
+                        Maintain a positive approach
+                        while learning and solving problems.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CURRENTLY LEARNING
+        ========================= -->
+
+        <section class="skill-category">
+
+            <div class="category-title">
+
+                <h2>📖 Currently Learning</h2>
+
+            </div>
+
+
+            <div class="learning-box">
+
+                <h2>
+                    Building My Full Stack Skills 🚀
+                </h2>
+
+                <p>
+                    I am currently improving my knowledge in
+                    JavaScript, React.js, Node.js, Express.js,
+                    MongoDB, REST APIs and GitHub.
+                </p>
+
+                <p>
+                    My goal is to combine frontend, backend
+                    and database technologies to create
+                    complete full-stack web applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Dharshini | My Portfolio
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```

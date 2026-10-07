@@ -1,0 +1,676 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Me | My Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           CONTACT PAGE
+        ========================= */
+
+        .contact-page {
+            min-height: 100vh;
+            padding: 130px 10% 80px;
+            background: linear-gradient(135deg, #f7f5ff, #ffffff);
+        }
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .contact-heading {
+            text-align: center;
+            margin-bottom: 55px;
+            animation: fadeDown 1s ease;
+        }
+
+        .contact-heading h1 {
+            font-size: 45px;
+            color: #222;
+        }
+
+        .contact-heading h1 span {
+            color: #6c4df6;
+        }
+
+        .contact-heading p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* =========================
+           CONTACT CONTAINER
+        ========================= */
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 35px;
+            align-items: stretch;
+            padding-left: 30%;
+            padding-right: 30px;
+        
+        }
+
+        /* =========================
+           CONTACT INFORMATION
+        ========================= */
+
+        .contact-info {
+            background: #6c4df6;
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(108, 77, 246, 0.25);
+            animation: slideLeft 1s ease;
+        }
+
+        .contact-info h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info > p {
+            line-height: 1.7;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* =========================
+           CONTACT ITEMS
+        ========================= */
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(7px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .contact-item h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a,
+        .contact-item span {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           SOCIAL LINKS
+        ========================= */
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links h3 {
+            margin-bottom: 15px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: white;
+            color: #6c4df6;
+            transform: translateY(-5px);
+        }
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: slideRight 1s ease;
+        }
+
+        .contact-form h2 {
+            color: #6c4df6;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .contact-form > p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* =========================
+           INPUT GROUP
+        ========================= */
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e3eb;
+            border-radius: 10px;
+            outline: none;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            border-color: #6c4df6;
+            box-shadow: 0 0 0 3px rgba(108, 77, 246, 0.1);
+        }
+
+        .input-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* =========================
+           SUBMIT BUTTON
+        ========================= */
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            background: #6c4df6;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #5337d4;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(108, 77, 246, 0.25);
+        }
+
+        /* =========================
+           AVAILABILITY
+        ========================= */
+
+        .availability {
+            margin-top: 50px;
+            padding: 35px;
+            background: #f0edff;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .availability h2 {
+            color: #6c4df6;
+            margin-bottom: 12px;
+        }
+
+        .availability p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .available-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background: #e3f8e9;
+            color: #218838;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #171322;
+            color: white;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes slideLeft {
+
+            from {
+                opacity: 0;
+                transform: translateX(-70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        @keyframes slideRight {
+
+            from {
+                opacity: 0;
+                transform: translateX(70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .contact-page {
+                padding: 120px 5% 60px;
+            }
+
+            .contact-heading h1 {
+                font-size: 35px;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MyPortfolio
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="skills.html">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projects.html">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="education.html">
+                        Education
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         CONTACT PAGE
+    ========================= -->
+
+    <main class="contact-page">
+
+
+        <!-- Heading -->
+
+        <div class="contact-heading">
+
+            <h1>
+                Contact <span>Me</span>
+            </h1>
+
+            <p>
+                Have a project idea or want to connect?
+                Feel free to send me a message.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             CONTACT CONTAINER
+        ========================= -->
+
+        <div class="contact-container">
+
+
+            <!-- =========================
+                 CONTACT INFORMATION
+            ========================= -->
+
+            <div class="contact-info">
+
+                <h2>
+                    Let's Connect
+                </h2>
+
+                <p>
+                    I am always interested in learning,
+                    collaborating on projects and discussing
+                    new opportunities.
+                </p>
+
+
+                <!-- Email -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📧
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Email
+                        </h3>
+
+                        <a href="mailto:dharsinishanmugam555@gmail.com">
+                            dharsinishanmugam555@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Phone -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📱
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Phone
+                        </h3>
+
+                        <a href="tel:+918778961464">
+                            +91 87789 61464
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Location -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Location
+                        </h3>
+
+                        <span>
+                            Tamil Nadu, India
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Availability -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Availability
+                        </h3>
+
+                        <span>
+                            Open to opportunities
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Social Media -->
+
+                <div class="social-links">
+
+                    <h3>
+                        Follow Me
+                    </h3>
+
+                    <div class="social-buttons">
+
+                        <!-- Replace links with your profiles -->
+
+                        <a
+                            href="https://www.linkedin.com/in/dharshini-s-632b29381?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            target="_blank"
+                            class="social-btn"
+                            title="LinkedIn">
+
+                            in
+
+                        </a>
+
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            class="social-btn"
+                            title="GitHub">
+
+                            ●
+
+                        </a>
+
+                        <a
+                            href="mailto:dharsinishanmugam555@gmail.com"
+                            class="social-btn"
+                            title="Email">
+
+                            @
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            
+
+        </div>
+
+
+        <!-- =========================
+             AVAILABILITY
+        ========================= -->
+
+        <section class="availability">
+
+            <h2>
+                Looking for Opportunities? 🚀
+            </h2>
+
+            <p>
+                I am interested in internships, entry-level
+                opportunities, web development projects and
+                collaborative learning experiences.
+            </p>
+
+            <span class="available-badge">
+                ● Available for Opportunities
+            </span>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 DharsHini | My Portfolio
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
